@@ -20,20 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Validate new password
   if (empty(trim($_POST["new_password"]))) {
-    $new_password_err = "Please enter the new password.";
-  } elseif (strlen(trim($_POST["new_password"])) < 6) {
-    $new_password_err = "Password must have atleast 6 characters.";
+    $new_password_err = "Masukkan password baru.";
+  } elseif (!(strlen(trim($_POST["new_password"])) >= 8 and strlen(trim($_POST["new_password"])) <= 20)) {
+    $new_password_err = "Password setidaknya berisi 8-20 karakter.";
   } else {
     $new_password = trim($_POST["new_password"]);
   }
 
   // Validate confirm password
   if (empty(trim($_POST["confirm_password"]))) {
-    $confirm_password_err = "Please confirm the password.";
+    $confirm_password_err = "Tolong confirm password.";
   } else {
     $confirm_password = trim($_POST["confirm_password"]);
     if (empty($new_password_err) && ($new_password != $confirm_password)) {
-      $confirm_password_err = "Password did not match.";
+      $confirm_password_err = "Password tidak sesuai.";
     }
   }
 
@@ -74,49 +74,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Reset Password</title>
+  <title>Register Page</title>
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="productsans.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      font: 14px sans-serif;
-    }
-
-    .wrapper {
-      width: 360px;
-      padding: 20px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="wrapper">
-    <h2>Reset Password</h2>
-    <p>Please fill out this form to reset your password.</p>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <div class="form-group">
-        <label>New Password</label>
-        <input type="password" name="new_password"
-          class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>"
-          value="<?php echo $new_password; ?>">
-        <span class="invalid-feedback">
+  <div class="login-page">
+    <div class="form">
+      <h2>Reset Password</h2>
+
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+        <input type="password" name="new_password" placeholder="Password"
+          class="form-control mt-3 <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>"
+          value="<?php echo $new_password; ?>" style="font-family: 'Product Sans';">
+        <span class="invalid-feedback mb-1" style="text-align: left">
           <?php echo $new_password_err; ?>
         </span>
-      </div>
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" name="confirm_password"
-          class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
-        <span class="invalid-feedback">
+
+        <input type="password" name="confirm_password" placeholder="Confirm Password"
+          class="form-control mt-3 <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
+          value="<?php echo $confirm_password; ?>" style="font-family: 'Product Sans';">
+        <span class="invalid-feedback mb-1" style="text-align: left">
           <?php echo $confirm_password_err; ?>
         </span>
-      </div>
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Submit">
-        <a class="btn btn-link ml-2" href="welcome.php">Cancel</a>
-      </div>
-    </form>
-  </div>
+
+        <div class="form-group mt-3">
+          <button type="submit" value="Submit" style="width: 40%">Submit</button>
+        </div>
+
+        <p class="message">Sudah punya akun? <a href="login.php">Login disini</a></p>
+      </form>
+    </div>
 </body>
 
 </html>

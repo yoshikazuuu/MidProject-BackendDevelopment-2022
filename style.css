@@ -29,29 +29,15 @@ body {
   border-radius: 20px;
 }
 
-.form input[type="text"],
-.form input[type="password"] {
-  font-family: 'Product Sans';
-  outline: none;
-  width: 100%;
-  border: gray solid;
-  margin: 15px 0 0;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
 .form button {
   font-family: 'Product Sans';
   text-transform: uppercase;
   outline: none;
   background-color: #2196F3;
-  width: 100%;
+  width: 50%;
   border: 0;
   margin: 15px 0;
-  padding: 15px;
+  padding: 10px;
   color: #FFFFFF;
   font-size: 14px;
   -webkit-transition: all 0.3s ease;
@@ -75,7 +61,6 @@ body {
 .form p.message {
   color: #666666;
   font-size: 14px;
-  margin-top: 15px;
 }
 
 .form p.message a {
@@ -88,11 +73,12 @@ body {
 }
 
 #wrong-credential {
-  color: red;
+  color: #dc3545;
+  font-size: small;
 }
 
 .invalid-feedback {
-  color: red;
+  color: #dc3545;
   float: left;
   font-size: small;
   padding: 5px;

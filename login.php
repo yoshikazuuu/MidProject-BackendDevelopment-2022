@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" type="text/css" href="productsans.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -104,32 +105,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form">
       <h2>Login</h2>
 
-      <!-- <?php
-      if (!empty($login_err)) {
-        echo '<div class="alert alert-danger">' . $login_err . '</div>';
-      }
-      ?> -->
-
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <input type="text" name="username" placeholder="Username"
-          class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
-          value="<?php echo $username; ?>">
-        <span class="invalid-feedback">
+          class="form-control mt-3 <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
+          value="<?php echo $username; ?>" style="font-family: 'Product Sans';">
+        <span class="invalid-feedback mb-1" style="text-align: left">
           <?php echo $username_err; ?>
         </span>
+
         <input type="password" name="password" placeholder="Password"
-          class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-        <span class="invalid-feedback">
+          class="form-control mt-3 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+          style="font-family: 'Product Sans';">
+        <span class="invalid-feedback mb-1" style="text-align: left">
           <?php echo $password_err; ?>
         </span>
+
         <button type="submit">Log in</button>
       </form>
+
       <?php if (!empty($login_err)): ?>
-        <p class="error-message" id="wrong-credential">
+        <p class="alert alert-danger" id="wrong-credential">
           <?php echo $login_err; ?>
         </p>
       <?php endif; ?>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+
+      <p class="message">Belum terdaftar? <a href="register.php">Buat akun disini</a></p>
     </div>
   </div>
 </body>
