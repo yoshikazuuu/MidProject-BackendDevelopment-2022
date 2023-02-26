@@ -2,8 +2,35 @@
 
 session_start();
 
-$tasks = $_SESSION["TASK"];
-$completed_task = $_SESSION["COMPLETED_TASK"];
+require_once "config.php";
+
+if (isset($_POST['task-name'])) {
+  $task_name = mysqli_real_escape_string($link, $_POST['task-name']);
+  $query = "INSERT INTO tasks (name) VALUES ('$task_name')";
+  mysqli_query($link, $query);
+}
+
+$query = "SELECT * FROM tasks WHERE completed = 0";
+$result = mysqli_query($link, $query);
+$tasks = [];
+while ($row = mysqli_fetch_assoc($result)) {
+  $tasks[$row['id']] = $row['name'];
+}
+
+if (isset($_POST['completed-index'])) {
+  $completed_index = mysqli_real_escape_string($link, $_POST['completed-index']);
+  $query = "UPDATE tasks SET completed = 1 WHERE id = $completed_index";
+  mysqli_query($link, $query);
+}
+
+$query = "SELECT * FROM tasks WHERE completed = 1";
+$result = mysqli_query($link, $query);
+$completed_tasks = [];
+while ($row = mysqli_fetch_assoc($result)) {
+  $completed_tasks[] = $row['name'];
+}
+
+mysqli_close($link);
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +44,7 @@ $completed_task = $_SESSION["COMPLETED_TASK"];
 </head>
 
 <body>
-  <form action="request.php" method="POST">
+  <form action="todo.php" method="POST">
     <label for="">Add New Task : </label>
     <input type="text" name="task-name" placeholder="Task Name">
     <input type="submit" value="Submit">
@@ -27,7 +54,7 @@ $completed_task = $_SESSION["COMPLETED_TASK"];
     <?php foreach ($tasks as $key => $task): ?>
       <li>
         <?= $task ?>
-        <form action="request.php" method="POST" style="display: inline-block;">
+        <form action="todo.php" method="POST" style="display: inline-block;">
           <input type="hidden" value="<?= $key; ?>" name="completed-index">
           <button>Done</button>
         </form>
@@ -36,7 +63,7 @@ $completed_task = $_SESSION["COMPLETED_TASK"];
   </ol>
   <h1>Completed Task</h1>
   <ul>
-    <?php foreach ($completed_task as $task): ?>
+    <?php foreach ($completed_tasks as $task): ?>
       <li>
         <s>
           <?= $task ?>
