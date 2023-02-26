@@ -12,6 +12,8 @@ CREATE TABLE users (
 
 CREATE TABLE tasks (
   id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
   name VARCHAR(255) NOT NULL,
+  deadline DATE,
   completed TINYINT(1) NOT NULL DEFAULT 0
 );
