@@ -1,6 +1,6 @@
-CREATE DATABASE demo;
+CREATE DATABASE user_data;
 
-USE demo;
+USE user_data;
 
 CREATE TABLE users (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

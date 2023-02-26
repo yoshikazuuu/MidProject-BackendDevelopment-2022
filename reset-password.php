@@ -62,8 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Reset Password</title>
   <meta name="HandheldFriendly" content="true" />
   <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="stylesheet" type="text/css" href="productsans.css" />
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  <link rel="stylesheet" type="text/css" href="styles/productsans.css" />
+  <link rel="icon" href="img/moai.png" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -88,12 +89,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <?php echo $confirm_password_err; ?>
         </span>
 
-        <div class="form-group mt-3">
-          <button type="submit" value="Submit" style="width: 40%">Submit</button>
-        </div>
 
-        <p class="message">Sudah punya akun? <a href="login.php">Login disini</a></p>
+        <button type="submit">Submit</button>
       </form>
+      <p>
+        <a class="btn btn-warning btn-sm" href="welcome.php">Cancel</a>
+      </p>
+
     </div>
 </body>
 
