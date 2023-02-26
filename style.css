@@ -1,0 +1,99 @@
+body {
+  background-color: transparent;
+  background-image: url("img/login.jpg");
+  background-size: cover;
+}
+
+.login-page {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  width: 360px;
+  height: auto;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  padding: 45px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  font-family: 'Product Sans';
+  outline: none;
+  width: 100%;
+  border: gray solid;
+  margin: 15px 0 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.form button {
+  font-family: 'Product Sans';
+  text-transform: uppercase;
+  outline: none;
+  background-color: #2196F3;
+  width: 100%;
+  border: 0;
+  margin: 15px 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background-color: #1976D2;
+}
+
+.form h2 {
+  color: #333333;
+  font-size: 28px;
+  margin: 0 0 15px;
+}
+
+.form p.message {
+  color: #666666;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.form p.message a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.form p.message a:hover {
+  text-decoration: underline;
+}
+
+#wrong-credential {
+  color: red;
+}
+
+.invalid-feedback {
+  color: red;
+  float: left;
+  font-size: small;
+  padding: 5px;
+}
