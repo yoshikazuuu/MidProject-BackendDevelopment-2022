@@ -27,8 +27,8 @@ To do list web page using PHP and MySQL as a database for storing user account a
 
 Members:
 
-1. [yoshikazuuu](https://github.com/yoshikazuuu) **Jerry**
-2. [DirtyDirt24](https://github.com/DirtyDirt24) **Kenny**
+1. [yoshikazuuu](https://github.com/yoshikazuuu) **Jerry - 2602187664**
+2. [DirtyDirt24](https://github.com/DirtyDirt24) **Kenny - 2602115015**
 
 <br>
 
