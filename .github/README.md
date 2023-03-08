@@ -41,7 +41,7 @@ Members:
 3. Clone this repository
 
    ```sh
-   git clone https://github.com/yoshikazuuu/MidProject-BackendDevelopment-2022 todo
+   git clone https://github.com/yoshikazuuu/MidProject-BackendDevelopment-2022 mid
    cd mid
    ```
 
